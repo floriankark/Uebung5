@@ -1,21 +1,24 @@
 package de.propra.klausur;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class KlausurAuswertung {
     public static int getAnzahlBestanden(List<Ergebnis> ergebnisse, int bestehensGrenze) {
-        // TODO: implementiere mich
-        throw new UnsupportedOperationException("Not implemented yet");
+        return (int) ergebnisse.stream().filter(x -> x.getPunkte() >= bestehensGrenze).count();
     }
 
     public static double getPunkteDurchschnitt(List<Ergebnis> ergebnisse) {
-        // TODO: implementiere mich
-        throw new UnsupportedOperationException("Not implemented yet");
+        int laenge = ergebnisse.size();
+        int sum = ergebnisse.stream().mapToInt(Ergebnis::getPunkte).sum();
+        return (double) sum/laenge;
     }
 
 
     public static List<Ergebnis> getBestandeneStudis(List<Ergebnis> ergebnisse, int bestehensGrenze) {
-        // TODO: implementiere mich
-        throw new UnsupportedOperationException("Not implemented yet");
+        //List<Ergebnis> l = new ArrayList<>();
+        return ergebnisse.stream().filter(x -> x.getPunkte() >= bestehensGrenze).collect(Collectors.toList());
+        //return l;
     }
 }

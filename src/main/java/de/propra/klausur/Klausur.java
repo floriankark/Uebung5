@@ -16,8 +16,8 @@ public class Klausur {
     }
 
     public void changeBestehensGrenze(Integer neueGrenze) {
-        // TODO: implementiere mich
-        throw new UnsupportedOperationException("Not Implemented yet");
+        this.bestehensGrenze = neueGrenze;
+        bestandeneStudis = KlausurAuswertung.getBestandeneStudis(ergebnisse, bestehensGrenze);
     }
 
     public Double getPunkteDurchschnitt() {
